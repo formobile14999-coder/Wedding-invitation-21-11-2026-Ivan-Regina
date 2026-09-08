@@ -20,6 +20,13 @@
       font-style: normal;
       font-display: swap;
     }
+    @font-face {
+      font-family: "CaviarDreamsBold";
+      src: url("Caviar_Dreams_Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
 
     :root {
       --navy: #031E3D;
@@ -98,20 +105,11 @@
     }
     .has-video-bg { position: relative; }
     .has-video-bg > .section-inner { position: relative; z-index: 2; }
-    /* Чуть более жирный текст поверх видео-фона для лучшей читаемости */
+    /* Жирный шрифт для текста поверх видео-фона */
     .has-video-bg,
     .has-video-bg .section-inner {
-      font-weight: 500;
-    }
-    .has-video-bg .names {
-      font-weight: 500;
-    }
-    .has-video-bg .eyebrow,
-    .has-video-bg .heading,
-    .has-video-bg .hero-date .date-year,
-    .has-video-bg .hero-date .date-month,
-    .has-video-bg .body-copy {
-      font-weight: 600;
+      font-family: "CaviarDreamsBold", "CaviarDreams", Arial, sans-serif;
+      font-weight: 700;
     }
 
     .section {
