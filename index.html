@@ -28,8 +28,8 @@
       --light-blue: #73AFE9;
       --pale-blue: #A9D0F7;
       --white: #ffffff;
-      --ink: #784F3B;
-      --muted: #784F3B;
+      --ink: #251B12;
+      --muted: #251B12;
       --line: rgba(3, 30, 61, .16);
       --cream: #f7f9fc;
     }
@@ -98,6 +98,21 @@
     }
     .has-video-bg { position: relative; }
     .has-video-bg > .section-inner { position: relative; z-index: 2; }
+    /* Чуть более жирный текст поверх видео-фона для лучшей читаемости */
+    .has-video-bg,
+    .has-video-bg .section-inner {
+      font-weight: 500;
+    }
+    .has-video-bg .names {
+      font-weight: 500;
+    }
+    .has-video-bg .eyebrow,
+    .has-video-bg .heading,
+    .has-video-bg .hero-date .date-year,
+    .has-video-bg .hero-date .date-month,
+    .has-video-bg .body-copy {
+      font-weight: 600;
+    }
 
     .section {
       position: relative;
@@ -274,7 +289,7 @@
       display: grid;
       place-items: center;
       background: #E2C7AA;
-      color: #784F3B;
+      color: #251B12;
       border-radius: 10px;
       font-size: 42px;
       letter-spacing: .04em;
@@ -418,7 +433,7 @@
     }
     .btn:hover { transform: translateY(-2px); }
     .btn-dark {
-      color: #784F3B;
+      color: #251B12;
       background: #E2C7AA;
       border-color: #E2C7AA;
     }
@@ -468,7 +483,7 @@
     .swatch:nth-child(3) { background:#B3B39B; }
     .swatch:nth-child(4) { background:#706C47; }
     .swatch:nth-child(5) { background:#947765; }
-    .swatch:nth-child(6) { background:#784F3B; }
+    .swatch:nth-child(6) { background:#251B12; }
     .swatch:nth-child(7) { background:#251B12; }
     @media (max-width: 380px) {
       .swatches { gap: 5px; }
@@ -775,7 +790,11 @@
         <div class="paper double reveal">
           <h2 class="heading">Дорогие родные и друзья!</h2>
           <p class="body-copy">
-            Пару слов о том, что скоро мы станем семьёй.
+            Позвольте пригласить вас разделить с нами столь важный день —
+            торжество, посвящённое нашему бракосочетанию!
+          </p>
+          <p class="body-copy" style="margin-top:28px">
+            Мы будем рады разделить с вами самые яркие моменты!
           </p>
         </div>
       </div>
@@ -851,8 +870,7 @@
         <div class="location-name">Банкетный зал «Седанка парк»</div>
         <div class="location-address">Адрес: г. Владивосток, ул. Менделеева, 14 к3</div>
         <a class="btn btn-dark"
-           href="https://2gis.ru/vladivostok/firm/70000001039039808/131.953468%2C43.207264"
-           target="_blank" rel="noopener">Открыть карту</a>
+           href="https://2gis.ru/vladivostok/geo/70000001110272818/131.954507,43.206345" rel="noopener">Открыть карту</a>
       </div>
     </section>
 
@@ -870,7 +888,7 @@
           <span class="swatch" title="#B3B39B"></span>
           <span class="swatch" title="#706C47"></span>
           <span class="swatch" title="#947765"></span>
-          <span class="swatch" title="#784F3B"></span>
+          <span class="swatch" title="#251B12"></span>
           <span class="swatch" title="#251B12"></span>
         </div>
       </div>
