@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#031E3D">
+  <meta name="theme-color" content="#E2C7AA">
   <title>Иван и Регина — приглашение на свадьбу</title>
 
   <style>
@@ -37,7 +37,7 @@
     * { box-sizing: border-box; }
     html {
       scroll-behavior: smooth;
-      background: var(--navy);
+      background: var(--cream);
     }
     body {
       margin: 0;
@@ -119,10 +119,10 @@
       align-items: center;
       justify-content: center;
       background:
-        radial-gradient(circle at 15% 15%, rgba(169,208,247,.26), transparent 32%),
-        radial-gradient(circle at 90% 70%, rgba(52,137,207,.22), transparent 36%),
-        linear-gradient(145deg, #021a35 0%, #06325d 48%, #031E3D 100%);
-      color: white;
+        radial-gradient(circle at 15% 15%, rgba(226,199,170,.35), transparent 32%),
+        radial-gradient(circle at 90% 70%, rgba(148,119,101,.22), transparent 36%),
+        linear-gradient(145deg, #f7f0e8 0%, #ecdccb 48%, #e2c7aa 100%);
+      color: var(--ink);
       padding-top: max(60px, env(safe-area-inset-top));
       padding-bottom: max(40px, env(safe-area-inset-bottom));
     }
@@ -130,7 +130,7 @@
     .hero::after {
       content: "";
       position: absolute;
-      border: 1px solid rgba(169,208,247,.18);
+      border: 1px solid rgba(120,79,59,.18);
       border-radius: 50%;
       transform: rotate(-20deg);
     }
@@ -299,11 +299,11 @@
     /* Timeline */
     .timeline-section {
       background:
-        radial-gradient(circle at 80% 20%, rgba(169,208,247,.32), transparent 30%),
-        linear-gradient(155deg, var(--navy), #064b86 60%, #031E3D);
-      color: white;
+        radial-gradient(circle at 80% 20%, rgba(226,199,170,.4), transparent 30%),
+        linear-gradient(155deg, #e2c7aa, #d8b79c 60%, #c9a583);
+      color: var(--ink);
     }
-    .timeline-section .heading { color: white; }
+    .timeline-section .heading { color: var(--ink); }
     .timeline {
       position: relative;
       margin: 35px 0 0 16px;
@@ -315,7 +315,7 @@
       top: 8px;
       bottom: 8px;
       width: 1px;
-      background: rgba(255,255,255,.45);
+      background: rgba(120,79,59,.35);
     }
     .event {
       position: relative;
@@ -335,8 +335,8 @@
       width: 46px;
       height: 46px;
       border-radius: 50%;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.48);
+      background: rgba(120,79,59,.08);
+      border: 1px solid rgba(120,79,59,.4);
       display: grid;
       place-items: center;
       backdrop-filter: blur(4px);
@@ -582,11 +582,11 @@
     /* RSVP */
     .rsvp {
       background:
-        radial-gradient(circle at 20% 10%, rgba(169,208,247,.2), transparent 35%),
-        linear-gradient(145deg, #021a35, #06325d 58%, #031E3D);
-      color: white;
+        radial-gradient(circle at 20% 10%, rgba(226,199,170,.35), transparent 35%),
+        linear-gradient(145deg, #f7f0e8, #ecdccb 58%, #e2c7aa);
+      color: var(--ink);
     }
-    .rsvp .heading { color: white; }
+    .rsvp .heading { color: var(--ink); }
     .form {
       display: grid;
       gap: 14px;
@@ -603,10 +603,10 @@
     .field textarea,
     .field select {
       width: 100%;
-      border: 1px solid rgba(255,255,255,.28);
+      border: 1px solid rgba(120,79,59,.3);
       border-radius: 12px;
-      background: rgba(255,255,255,.07);
-      color: white;
+      background: rgba(120,79,59,.06);
+      color: var(--ink);
       padding: 14px 15px;
       outline: none;
       transition: border-color .2s ease, background .2s ease;
@@ -634,16 +634,16 @@
       width: 18px;
       height: 18px;
       flex: 0 0 18px;
-      accent-color: var(--pale-blue);
+      accent-color: #947765;
     }
     .field select option { color: var(--ink); }
     .field input::placeholder,
-    .field textarea::placeholder { color: rgba(255,255,255,.52); }
+    .field textarea::placeholder { color: rgba(120,79,59,.55); }
     .field input:focus,
     .field textarea:focus,
     .field select:focus {
-      border-color: var(--pale-blue);
-      background: rgba(255,255,255,.1);
+      border-color: #947765;
+      background: rgba(120,79,59,.1);
     }
     .submit {
       width: 100%;
@@ -656,7 +656,7 @@
       display: none;
       margin-top: 22px;
       padding: 18px;
-      border: 1px solid rgba(255,255,255,.25);
+      border: 1px solid rgba(120,79,59,.25);
       border-radius: 14px;
       text-align: center;
       font-size: 17px;
