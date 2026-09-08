@@ -49,6 +49,29 @@
     }
     button, input, textarea, select { font: inherit; }
 
+    /* Кнопка вкл/выкл музыки */
+    .music-toggle {
+      position: fixed;
+      top: max(16px, env(safe-area-inset-top));
+      right: max(16px, env(safe-area-inset-right));
+      z-index: 1000;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 6px 18px rgba(3,30,61,.18);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+    .music-toggle img {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
     main { width: 100%; }
 
     /* Видео-фон для секций, где раньше был синий градиент */
@@ -71,9 +94,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 15% 15%, rgba(169,208,247,.18), transparent 32%),
-        linear-gradient(145deg, rgba(2,26,53,.72) 0%, rgba(6,50,93,.6) 48%, rgba(3,30,61,.78) 100%);
+      background: transparent;
     }
     .has-video-bg { position: relative; }
     .has-video-bg > .section-inner { position: relative; z-index: 2; }
@@ -229,7 +250,7 @@
 
     /* Date flip */
     .date-section {
-      background: #E2C7AA;
+      background: linear-gradient(180deg, var(--cream), #fff);
       text-align: center;
     }
     .date-label {
@@ -252,8 +273,8 @@
       height: 86px;
       display: grid;
       place-items: center;
-      background: var(--navy);
-      color: white;
+      background: #E2C7AA;
+      color: #784F3B;
       border-radius: 10px;
       font-size: 42px;
       letter-spacing: .04em;
@@ -472,9 +493,7 @@
       margin: 0;
       aspect-ratio: 3 / 4.65;
       overflow: hidden;
-      border-radius: 14px;
-      background: #e8eef5;
-      box-shadow: 0 10px 25px rgba(3,30,61,.08);
+      background: transparent;
     }
     .look-card.reveal {
       transform: translateX(-46px);
@@ -489,13 +508,11 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      transition: transform .8s cubic-bezier(.2,.75,.25,1), filter .8s ease;
-      filter: saturate(.92);
+      object-fit: contain;
+      transition: transform .8s cubic-bezier(.2,.75,.25,1);
     }
     .look-card:hover img {
       transform: scale(1.035);
-      filter: saturate(1);
     }
     .looks-divider {
       margin: 52px 0 28px;
@@ -532,8 +549,6 @@
       font-size: 17px;
       text-decoration: none;
       letter-spacing: .02em;
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 1px;
     }
     .call-icon {
       display: inline-flex;
@@ -730,6 +745,11 @@
 </head>
 
 <body>
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Включить музыку" aria-pressed="false">
+    <img id="musicIcon" src="2.png" alt="">
+  </button>
+  <audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+
   <main>
     <!-- 1. Обложка -->
     <section class="section hero has-video-bg">
@@ -834,7 +854,6 @@
            href="https://2gis.ru/vladivostok/firm/70000001039039808/131.953468%2C43.207264"
            target="_blank" rel="noopener">Открыть карту</a>
       </div>
-      <img class="location-photo reveal" src="Photo13.jpeg" alt="Локация" loading="lazy">
     </section>
 
     <!-- 6. Дресс-код -->
@@ -857,29 +876,24 @@
       </div>
     </section>
 
-    <!-- 7. Женские образы -->
+    <!-- 7. Образы -->
     <section class="section looks">
       <div class="section-inner">
-        <h2 class="heading reveal">Женские образы</h2>
         <div class="gallery">
-          <figure class="look-card reveal"><img src="Photo1.jpeg" alt="Женский образ 1" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo2.jpeg" alt="Женский образ 2" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo3.jpeg" alt="Женский образ 3" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo4.jpeg" alt="Женский образ 4" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo5.jpeg" alt="Женский образ 5" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo6.jpeg" alt="Женский образ 6" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo7.jpeg" alt="Женский образ 7" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo8.jpeg" alt="Женский образ 8" loading="lazy"></figure>
-        </div>
-
-        <div class="looks-divider"></div>
-
-        <h2 class="heading reveal">Мужские образы</h2>
-        <div class="gallery">
-          <figure class="look-card reveal"><img src="Photo9.jpeg" alt="Мужской образ 1" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo10.jpeg" alt="Мужской образ 2" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo11.jpeg" alt="Мужской образ 3" loading="lazy"></figure>
-          <figure class="look-card reveal"><img src="Photo12.jpeg" alt="Мужской образ 4" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo1.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo2.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo3.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo4.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo5.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo6.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo7.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo8.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo9.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo10.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo11.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo12.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo13.png" alt="" loading="lazy"></figure>
+          <figure class="look-card reveal"><img src="Photo14.png" alt="" loading="lazy"></figure>
         </div>
       </div>
     </section>
@@ -899,19 +913,6 @@
         </div>
 
         <div class="hint-item reveal">
-          <div class="hint-icon"><img src="Photo22.png" alt="" loading="lazy"></div>
-          <div>
-            <h3 class="hint-title">Сюрпризы</h3>
-            <p class="hint-text">
-              Мы с радостью примем любые ваши поздравления, а также будем рады активному участию
-              в интерактивах и творческих выступлениях! Для воплощения своих идей вы можете
-              обратиться к нашему организатору, чтобы она вовремя внесла изменения в программу
-              вечера, а также могла своевременно предупредить ведущего о поздравлениях гостей.
-            </p>
-          </div>
-        </div>
-
-        <div class="hint-item reveal">
           <div class="hint-icon"><img src="Photo21.png" alt="" loading="lazy"></div>
           <div>
             <p class="hint-text">
@@ -922,9 +923,20 @@
         </div>
 
         <div class="hint-item reveal">
+          <div class="hint-icon"><img src="Photo22.png" alt="" loading="lazy"></div>
+          <div>
+            <p class="hint-text">
+              Мы с радостью примем любые ваши поздравления, а также будем рады активному участию
+              в интерактивах и творческих выступлениях! Для воплощения своих идей вы можете
+              обратиться к нашему организатору, чтобы она вовремя внесла изменения в программу
+              вечера, а также могла своевременно предупредить ведущего о поздравлениях гостей.
+            </p>
+          </div>
+        </div>
+
+        <div class="hint-item reveal">
           <div class="hint-icon"><img src="Photo24.png" alt="Позвонить" loading="lazy"></div>
           <div>
-            <h3 class="hint-title">Телефон для связи</h3>
             <p class="hint-text">
               Для воплощения своих идей вы можете обратиться к нашему свадебному организатору.
             </p>
@@ -959,23 +971,44 @@
           (сейчас в action уже стоит рабочая ссылка — замените её на свою, если публикуете скрипt заново)
 
           СТОЛБЦЫ, которые нужно добавить в Google-таблицу (лист, куда пишет Apps Script),
-          с названиями строго как ниже (порядок неважен, если скрипт пишет по e.parameter):
-            1. "Имя и фамилия"
-            2. "Имя пары"          — новый столбец, необязательное поле
-            3. "Присутствие"
-            4. "Количество гостей"
-            5. "Напитки"           — сюда попадает строка вида "Шампанское, Вино, своё предпочтение"
-            6. "Комментарий"
+          с названиями строго как ниже, ПЕРВЫМ столбцом — "Дата и время":
+            1. "Дата и время"       — заполняется автоматически в момент отправки формы (JS ниже)
+            2. "Имя и фамилия"
+            3. "Имя пары"           — необязательное поле
+            4. "Присутствие"
+            5. "Количество гостей"
+            6. "Напитки"            — строка вида "Шампанское, Вино, своё предпочтение"
+            7. "Комментарий"
 
           Поле "Напитки" по-прежнему приходит одной строкой через запятую — при выборе
           "Добавить своё" текст из поля ввода дописывается в конец этой строки.
-          Если Apps Script пишет строки вручную (row.push(...)), просто добавьте
-          e.parameter['Имя пары'] в нужном месте массива.
+
+          Пример кода Google Apps Script (Code.gs), который принимает эти поля
+          и записывает их строкой в таблицу в указанном порядке:
+
+          function doPost(e) {
+            const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Ответы');
+            sheet.appendRow([
+              e.parameter['Дата и время'],
+              e.parameter['Имя и фамилия'],
+              e.parameter['Имя пары'] || '',
+              e.parameter['Присутствие'],
+              e.parameter['Количество гостей'],
+              e.parameter['Напитки'],
+              e.parameter['Комментарий'] || ''
+            ]);
+            return ContentService.createTextOutput('OK');
+          }
+
+          Опубликуйте этот скрипт как веб-приложение (Deploy → New deployment → Web app,
+          Execute as: Me, Who has access: Anyone) и вставьте полученную ссылку в action формы ниже.
         -->
         <form class="form reveal" id="rsvpForm"
               action="https://script.google.com/macros/s/AKfycbw_XYHCC1an7u-SZ0nsVvAkhnHL5lkFu19by89z9Ffm2j_EgERlaFACQqAifI3x8Ik/exec"
               method="POST"
               target="rsvpFrame">
+          <input type="hidden" id="submittedAt" name="Дата и время">
+
           <div class="field">
             <label for="name">Имя и фамилия</label>
             <input id="name" name="Имя и фамилия" type="text" autocomplete="name"
@@ -1049,6 +1082,25 @@
   </main>
 
   <script>
+    // Вкл/выкл фоновой музыки: 1.png — звук включён, 2.png — выключен.
+    // По умолчанию звук выключен (браузеры блокируют автозапуск со звуком).
+    const musicBtn = document.getElementById("musicToggle");
+    const musicIcon = document.getElementById("musicIcon");
+    const bgMusic = document.getElementById("bgMusic");
+    let musicOn = false;
+
+    musicBtn.addEventListener("click", () => {
+      musicOn = !musicOn;
+      if (musicOn) {
+        bgMusic.play().catch(() => { musicOn = false; });
+      } else {
+        bgMusic.pause();
+      }
+      musicIcon.src = musicOn ? "1.png" : "2.png";
+      musicBtn.setAttribute("aria-pressed", String(musicOn));
+      musicBtn.setAttribute("aria-label", musicOn ? "Выключить музыку" : "Включить музыку");
+    });
+
     // Убираем экран загрузки после первого кадра.
     // Появление блоков при прокрутке строго в последовательности DOM.
     const observer = new IntersectionObserver((entries) => {
@@ -1078,6 +1130,9 @@
     const status = document.getElementById("formStatus");
 
     form.addEventListener("submit", () => {
+      document.getElementById("submittedAt").value =
+        new Date().toLocaleString("ru-RU", { dateStyle: "short", timeStyle: "short" });
+
       const checked = [...document.querySelectorAll("#drinksGroup input[type='checkbox']:checked")]
         .map(el => el.value);
       const otherDrink = document.getElementById("drinkOther").value.trim();
